@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/a_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gris"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/a_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="¿Qué comiste?"
+        android:imeOptions="actionNext"
+        android:inputType="textCapSentences"
+        android:maxLength="60" />
+
+    <EditText
+        android:id="@+id/a_kcal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Calorías (kcal)"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="5" />
+
+    <Button
+        android:id="@+id/a_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/naranja"
+        android:text="Agregar"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/a_freq_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Frecuentes"
+        android:textColor="@color/gris"
+        android:textSize="13sp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/a_freq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+</LinearLayout>

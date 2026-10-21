@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="naranja">#E8643A</color>
+    <color name="naranja_oscuro">#B94B26</color>
+    <color name="fondo">#F4F1EC</color>
+    <color name="texto">#1F2933</color>
+    <color name="gris">#6B7680</color>
+
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/naranja</item>
+        <item name="android:colorPrimaryDark">@color/naranja_oscuro</item>
+        <item name="android:colorAccent">@color/naranja</item>
+        <item name="android:windowBackground">@color/fondo</item>
+        <item name="android:textColorPrimary">@color/texto</item>
+    </style>
+
+    <style name="AddTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorPrimary">@color/naranja</item>
+        <item name="android:colorAccent">@color/naranja</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+</resources>
