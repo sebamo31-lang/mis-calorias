@@ -2,22 +2,69 @@
 <resources>
     <color name="naranja">#E8643A</color>
     <color name="naranja_oscuro">#B94B26</color>
-    <color name="fondo">#F4F1EC</color>
-    <color name="texto">#1F2933</color>
-    <color name="gris">#6B7680</color>
+    <color name="fondo_claro">#F4F1EC</color>
+    <color name="fondo_oscuro">#121417</color>
 
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+    <!-- Tema oscuro (por defecto) -->
+    <style name="AppTheme.Oscuro" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/naranja</item>
+        <item name="android:colorPrimaryDark">#0B0D0F</item>
+        <item name="android:colorAccent">@color/naranja</item>
+        <item name="android:windowBackground">@color/fondo_oscuro</item>
+        <item name="android:navigationBarColor">#0B0D0F</item>
+        <item name="cFondo">@color/fondo_oscuro</item>
+        <item name="cTexto">#ECEFF1</item>
+        <item name="cTextoSec">#9AA5AE</item>
+        <item name="cChip">#263238</item>
+        <item name="cChipTexto">#ECEFF1</item>
+        <item name="fondoFila">@drawable/fila_oscuro</item>
+    </style>
+
+    <!-- Tema claro -->
+    <style name="AppTheme.Claro" parent="android:Theme.Material.Light.DarkActionBar">
         <item name="android:colorPrimary">@color/naranja</item>
         <item name="android:colorPrimaryDark">@color/naranja_oscuro</item>
         <item name="android:colorAccent">@color/naranja</item>
-        <item name="android:windowBackground">@color/fondo</item>
-        <item name="android:textColorPrimary">@color/texto</item>
+        <item name="android:windowBackground">@color/fondo_claro</item>
+        <item name="cFondo">@color/fondo_claro</item>
+        <item name="cTexto">#1F2933</item>
+        <item name="cTextoSec">#6B7680</item>
+        <item name="cChip">#FFFFFF</item>
+        <item name="cChipTexto">#1F2933</item>
+        <item name="fondoFila">@drawable/card_light</item>
     </style>
 
-    <style name="AddTheme" parent="android:Theme.Material.Light.Dialog">
-        <item name="android:colorPrimary">@color/naranja</item>
+    <!-- Ventanita del widget -->
+    <style name="Dialogo.Oscuro" parent="android:Theme.Material.Dialog">
         <item name="android:colorAccent">@color/naranja</item>
         <item name="android:windowMinWidthMajor">90%</item>
         <item name="android:windowMinWidthMinor">90%</item>
+        <item name="cFondo">@color/fondo_oscuro</item>
+        <item name="cTexto">#ECEFF1</item>
+        <item name="cTextoSec">#9AA5AE</item>
+        <item name="cChip">#263238</item>
+        <item name="cChipTexto">#ECEFF1</item>
+        <item name="fondoFila">@drawable/fila_oscuro</item>
+    </style>
+
+    <style name="Dialogo.Claro" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/naranja</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="cFondo">@color/fondo_claro</item>
+        <item name="cTexto">#1F2933</item>
+        <item name="cTextoSec">#6B7680</item>
+        <item name="cChip">#FFFFFF</item>
+        <item name="cChipTexto">#1F2933</item>
+        <item name="fondoFila">@drawable/card_light</item>
+    </style>
+
+    <style name="Etiqueta">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">?attr/cTextoSec</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

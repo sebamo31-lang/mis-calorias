@@ -9,14 +9,15 @@
         android:id="@+id/a_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/gris"
+        android:textColor="?attr/cTextoSec"
         android:textSize="14sp" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/a_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:completionThreshold="1"
         android:hint="¿Qué comiste?"
         android:imeOptions="actionNext"
         android:inputType="textCapSentences"
@@ -45,8 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="Frecuentes"
-        android:textColor="@color/gris"
+        android:text="Mis alimentos"
+        android:textColor="?attr/cTextoSec"
         android:textSize="13sp" />
 
     <HorizontalScrollView

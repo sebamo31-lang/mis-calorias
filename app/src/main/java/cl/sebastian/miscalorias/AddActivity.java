@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,15 +13,18 @@ import android.widget.Toast;
 /** Ventanita que se abre desde el botón "+ Agregar" del widget. */
 public class AddActivity extends Activity {
 
-    private EditText etName, etKcal;
+    private AutoCompleteTextView etName;
+    private EditText etKcal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Ui.applyTheme(this, true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add);
 
         etName = findViewById(R.id.a_name);
         etKcal = findViewById(R.id.a_kcal);
+        Ui.setupAutocomplete(this, etName, etKcal);
 
         int goal = Prefs.goal(this);
         int total = Db.get(this).total(Prefs.today(this));
@@ -34,9 +38,11 @@ public class AddActivity extends Activity {
         });
 
         LinearLayout box = findViewById(R.id.a_freq);
-        int n = Ui.fillFrequent(this, box, this::addAndClose);
+        int n = Ui.fillChips(this, box, this::addAndClose);
         if (n == 0) {
             findViewById(R.id.a_freq_title).setVisibility(View.GONE);
+        } else if (n == 2) {
+            ((TextView) findViewById(R.id.a_freq_title)).setText("Tus frecuentes");
         }
         etName.requestFocus();
     }

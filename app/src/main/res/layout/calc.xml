@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculemos tu meta"
+            android:textColor="?attr/cTexto"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Con estos datos calculo cuánto gastas al día y cuántas calorías comer para bajar de peso."
+            android:textColor="?attr/cTextoSec"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/Etiqueta"
+            android:text="Sexo" />
+
+        <RadioGroup
+            android:id="@+id/c_sexo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/c_hombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Hombre"
+                android:textColor="?attr/cTexto" />
+
+            <RadioButton
+                android:id="@+id/c_mujer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="Mujer"
+                android:textColor="?attr/cTexto" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/c_edad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Edad (años)"
+                android:inputType="number"
+                android:maxLength="3" />
+
+            <EditText
+                android:id="@+id/c_peso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:hint="Peso (kg)"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
+
+            <EditText
+                android:id="@+id/c_altura"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:hint="Altura (cm)"
+                android:inputType="number"
+                android:maxLength="3" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/Etiqueta"
+            android:text="¿Cuánto te mueves en el día?" />
+
+        <Spinner
+            android:id="@+id/c_actividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/Etiqueta"
+            android:text="¿Qué quieres?" />
+
+        <RadioGroup
+            android:id="@+id/c_objetivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/c_def500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Bajar de peso (déficit de 500 kcal, recomendado)"
+                android:textColor="?attr/cTexto" />
+
+            <RadioButton
+                android:id="@+id/c_def300"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bajar más suave (déficit de 300 kcal)"
+                android:textColor="?attr/cTexto" />
+
+            <RadioButton
+                android:id="@+id/c_mantener"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mantener mi peso"
+                android:textColor="?attr/cTexto" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/c_calcular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/naranja"
+            android:text="Calcular"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:id="@+id/c_resultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/card_dark"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tu meta diaria"
+                android:textColor="#B0BEC5"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/c_meta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/c_detalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#CFD8DC"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/c_usar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/naranja"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Es una estimación (fórmula de Mifflin-St Jeor). Si tienes alguna condición de salud, conviene confirmarlo con un profesional."
+            android:textColor="?attr/cTextoSec"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

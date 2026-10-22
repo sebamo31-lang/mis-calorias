@@ -37,6 +37,49 @@ public final class Prefs {
         sp(c).edit().putInt("corte", v).apply();
     }
 
+    // ---- Tema: 0 = automático, 1 = oscuro, 2 = claro ----
+
+    public static int theme(Context c) {
+        return sp(c).getInt("tema", 1);
+    }
+
+    public static void setTheme(Context c, int v) {
+        sp(c).edit().putInt("tema", v).apply();
+    }
+
+    // ---- Perfil para la calculadora ----
+
+    public static boolean hasProfile(Context c) {
+        return sp(c).contains("peso");
+    }
+
+    public static boolean askedProfile(Context c) {
+        return sp(c).getBoolean("perfil_preguntado", false);
+    }
+
+    public static void setAskedProfile(Context c) {
+        sp(c).edit().putBoolean("perfil_preguntado", true).apply();
+    }
+
+    public static void saveProfile(Context c, boolean mujer, int edad, float peso, int altura,
+                                   int actividad, int objetivo) {
+        sp(c).edit()
+                .putBoolean("mujer", mujer)
+                .putInt("edad", edad)
+                .putFloat("peso", peso)
+                .putInt("altura", altura)
+                .putInt("actividad", actividad)
+                .putInt("objetivo", objetivo)
+                .apply();
+    }
+
+    public static boolean mujer(Context c) { return sp(c).getBoolean("mujer", false); }
+    public static int edad(Context c) { return sp(c).getInt("edad", 0); }
+    public static float peso(Context c) { return sp(c).getFloat("peso", 0f); }
+    public static int altura(Context c) { return sp(c).getInt("altura", 0); }
+    public static int actividad(Context c) { return sp(c).getInt("actividad", 0); }
+    public static int objetivo(Context c) { return sp(c).getInt("objetivo", 0); }
+
     public static Calendar dayCal(Context c, int offset) {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR_OF_DAY, -cutoff(c));

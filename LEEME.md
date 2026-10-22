@@ -11,6 +11,9 @@ App para Android que lleva la cuenta de tus calorías del día, con widget en la
 - **Días anteriores**: con ◀ ▶ revisas otros días y puedes anotar algo que se te olvidó.
 - **Borrar**: mantén presionada una comida.
 - **Últimos 7 días** con el total de cada uno.
+- **Calculadora** (menú ⋮ → *Calcular mis calorías*): con sexo, edad, peso, altura y actividad calcula tu IMC, tu gasto diario y una meta con déficit. Se abre sola la primera vez.
+- **Mis alimentos**: guarda tus comidas con sus calorías (botón *Ver todos* o marcando *Guardar en Mis alimentos* al agregar). Al escribir, te sugiere los guardados y completa las calorías.
+- **Modo oscuro** activado de entrada; menú ⋮ → *Tema* para cambiar a claro o automático.
 - Todo queda guardado en el teléfono; no necesita internet ni cuenta.
 
 ## Cómo sacar el APK

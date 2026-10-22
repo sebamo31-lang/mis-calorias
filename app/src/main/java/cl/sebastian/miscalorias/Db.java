@@ -20,6 +20,7 @@ public class Db extends SQLiteOpenHelper {
     }
 
     public static class Food {
+        public long id;
         public String name;
         public int kcal;
     }
@@ -37,7 +38,7 @@ public class Db extends SQLiteOpenHelper {
     }
 
     private Db(Context c) {
-        super(c, "calorias.db", null, 1);
+        super(c, "calorias.db", null, 2);
     }
 
     @Override
@@ -49,10 +50,71 @@ public class Db extends SQLiteOpenHelper {
                 "kcal INTEGER NOT NULL, " +
                 "ts INTEGER NOT NULL)");
         db.execSQL("CREATE INDEX idx_day ON entries(day)");
+        createFoods(db);
+    }
+
+    private static void createFoods(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE IF NOT EXISTS foods (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "name TEXT NOT NULL UNIQUE COLLATE NOCASE, " +
+                "kcal INTEGER NOT NULL)");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldV, int newV) { }
+    public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
+        if (oldV < 2) createFoods(db);
+    }
+
+    // ---- Mis alimentos ----
+
+    /** Guarda un alimento; si ya existe uno con el mismo nombre, actualiza sus calorías. */
+    public void saveFood(String name, int kcal) {
+        ContentValues v = new ContentValues();
+        v.put("name", name);
+        v.put("kcal", kcal);
+        getWritableDatabase().insertWithOnConflict("foods", null, v, SQLiteDatabase.CONFLICT_REPLACE);
+    }
+
+    public void updateFood(long id, String name, int kcal) {
+        ContentValues v = new ContentValues();
+        v.put("name", name);
+        v.put("kcal", kcal);
+        getWritableDatabase().updateWithOnConflict("foods", v, "id=?",
+                new String[]{String.valueOf(id)}, SQLiteDatabase.CONFLICT_REPLACE);
+    }
+
+    public void deleteFood(long id) {
+        getWritableDatabase().delete("foods", "id=?", new String[]{String.valueOf(id)});
+    }
+
+    public List<Food> foods(String filter) {
+        List<Food> out = new ArrayList<>();
+        String f = filter == null ? "" : filter.trim();
+        try (Cursor c = getReadableDatabase().rawQuery(
+                "SELECT id, name, kcal FROM foods WHERE name LIKE ? ORDER BY name COLLATE NOCASE",
+                new String[]{"%" + f + "%"})) {
+            while (c.moveToNext()) {
+                Food food = new Food();
+                food.id = c.getLong(0);
+                food.name = c.getString(1);
+                food.kcal = c.getInt(2);
+                out.add(food);
+            }
+        }
+        return out;
+    }
+
+    public Food findFood(String name) {
+        try (Cursor c = getReadableDatabase().rawQuery(
+                "SELECT id, name, kcal FROM foods WHERE name = ? COLLATE NOCASE", new String[]{name.trim()})) {
+            if (!c.moveToFirst()) return null;
+            Food food = new Food();
+            food.id = c.getLong(0);
+            food.name = c.getString(1);
+            food.kcal = c.getInt(2);
+            return food;
+        }
+    }
 
     public void add(String day, String name, int kcal) {
         ContentValues v = new ContentValues();

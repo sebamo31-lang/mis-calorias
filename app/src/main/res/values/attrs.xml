@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cFondo" format="color" />
+    <attr name="cTexto" format="color" />
+    <attr name="cTextoSec" format="color" />
+    <attr name="cChip" format="color" />
+    <attr name="cChipTexto" format="color" />
+    <attr name="fondoFila" format="reference" />
+</resources>

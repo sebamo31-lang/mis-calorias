@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@drawable/card_light"
+    android:background="?attr/fondoFila"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
@@ -21,14 +21,14 @@
             android:id="@+id/r_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/texto"
+            android:textColor="?attr/cTexto"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/r_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gris"
+            android:textColor="?attr/cTextoSec"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -36,7 +36,7 @@
         android:id="@+id/r_kcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/texto"
+        android:textColor="?attr/cTexto"
         android:textSize="16sp"
         android:textStyle="bold" />
 </LinearLayout>

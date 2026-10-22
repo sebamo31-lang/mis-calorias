@@ -7,7 +7,7 @@
         android:roundIcon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.Oscuro">
 
         <activity
             android:name=".MainActivity"
@@ -25,8 +25,18 @@
             android:excludeFromRecents="true"
             android:taskAffinity=".agregar"
             android:label="Agregar comida"
-            android:theme="@style/AddTheme"
+            android:theme="@style/Dialogo.Oscuro"
             android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name=".CalcActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".FoodsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <receiver
             android:name=".CaloriasWidget"

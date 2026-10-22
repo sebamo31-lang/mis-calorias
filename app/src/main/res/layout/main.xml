@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/texto"
+                android:textColor="?attr/cTexto"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:text="Agregar comida"
-            android:textColor="@color/texto"
+            android:textColor="?attr/cTexto"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -117,11 +117,12 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/et_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:completionThreshold="1"
                 android:hint="¿Qué comiste?"
                 android:imeOptions="actionNext"
                 android:inputType="textCapSentences"
@@ -138,6 +139,13 @@
                 android:maxLength="5" />
         </LinearLayout>
 
+        <CheckBox
+            android:id="@+id/cb_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar en Mis alimentos"
+            android:textColor="?attr/cTextoSec" />
+
         <Button
             android:id="@+id/btn_add"
             android:layout_width="match_parent"
@@ -147,15 +155,30 @@
             android:text="Agregar"
             android:textColor="#FFFFFF" />
 
-        <!-- Frecuentes -->
-        <TextView
-            android:id="@+id/tv_freq_title"
-            android:layout_width="wrap_content"
+        <!-- Mis alimentos / frecuentes -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="Tus frecuentes (toca para agregar)"
-            android:textColor="@color/gris"
-            android:textSize="13sp" />
+            android:layout_marginTop="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_freq_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mis alimentos (toca para agregar)"
+                android:textColor="?attr/cTextoSec"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btn_foods"
+                style="@android:style/Widget.Material.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver todos" />
+        </LinearLayout>
 
         <HorizontalScrollView
             android:id="@+id/sv_freq"
@@ -176,7 +199,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Comidas del día"
-            android:textColor="@color/texto"
+            android:textColor="?attr/cTexto"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -185,7 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Mantén presionada una comida para borrarla"
-            android:textColor="@color/gris"
+            android:textColor="?attr/cTextoSec"
             android:textSize="12sp" />
 
         <LinearLayout
@@ -201,7 +224,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
             android:text="Últimos días"
-            android:textColor="@color/texto"
+            android:textColor="?attr/cTexto"
             android:textSize="17sp"
             android:textStyle="bold" />
 
